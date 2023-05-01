@@ -1,9 +1,12 @@
 {
   "name": "protect-routes-jwt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "author": "Osmar Leandro <osmarleandrods@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
