@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 
+import "./config/db.js";
+
 const port = 3000;
 const app = express();
 
