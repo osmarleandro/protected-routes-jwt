@@ -37,3 +37,20 @@ export const createUser = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Something was wrong, try again!" });
   }
 };
+
+export const login = async (req: Request, res: Response) => {
+  const { login, password } = req.body;
+
+  if (!login || !password) return res.status(422);
+
+  const user = await User.findOne({ login: login }).exec();
+
+  if (!user) return res.status(404);
+
+  const checkPassword = await bcrypt.compare(password, user.password);
+
+  if (!checkPassword)
+    return res.status(422).json({ message: "The passwords do not match!" });
+
+  await createUserToken(user, req, res);
+};
