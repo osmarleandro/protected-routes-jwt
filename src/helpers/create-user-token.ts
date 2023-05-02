@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import jwt from "jsonwebtoken";
+import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
 
-import { IUser } from "../interfaces/IUser.js";
-import { readStringFromFile } from "../helpers/read-file";
+import { readStringFromFile } from '../helpers/read-file';
+import { IUser } from '../interfaces/IUser.js';
 
 export const createUserToken = async (
   user: IUser,
@@ -19,7 +19,5 @@ export const createUserToken = async (
     secret
   );
 
-  res
-    .status(200)
-    .json({ message: "User authenticated with success!", token: token });
+  res.json({ message: "User authenticated with success!", token: token });
 };

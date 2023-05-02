@@ -31,7 +31,7 @@ export async function verifyToken(
   try {
     const verified = jwt.verify(token, secret);
     req.user = verified;
-    next();
+    next(verified);
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: "Invalid Token!" });

@@ -1,18 +1,18 @@
-import { Router } from "express";
-import { createUser, login } from "../controllers/useController";
+import { Request, Response, Router } from 'express';
 
-import { verifyToken } from "../helpers/auth";
+import { createUser, login } from '../controllers/useController';
+import { verifyToken } from '../helpers/auth';
 
 export const userRouter = Router();
 
 userRouter.get("/", (req, res) => {
-  res.status(200).json({ message: "User Route!" });
+  res.json({ message: "User Route!" });
 });
 
 userRouter.post("/", createUser);
 
 userRouter.post("/login", login);
 
-userRouter.get("/protected", verifyToken, (req, res) => {
-  res.status(200).json({ message: "Protected User Route!" });
+userRouter.get("/protected", verifyToken, (req: Request, res: Response) => {
+  res.json({ message: `Protected Route! Welcome, ${req.user?.email}!` });
 });

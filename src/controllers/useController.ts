@@ -1,7 +1,8 @@
-import { User } from "../entities/user";
-import { Request, Response } from "express";
-import bcrypt from "bcrypt";
-import { createUserToken } from "../helpers/create-user-token";
+import bcrypt from 'bcrypt';
+import { Request, Response } from 'express';
+
+import { User } from '../entities/user';
+import { createUserToken } from '../helpers/create-user-token';
 
 export const createUser = async (req: Request, res: Response) => {
   const { name, login, password, confirmPass } = req.body;

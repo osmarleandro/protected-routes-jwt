@@ -1,9 +1,9 @@
-import express from "express";
-import cors from "cors";
+import './config/db.js';
 
-import "./config/db.js";
+import cors from 'cors';
+import express from 'express';
 
-import { userRouter } from "./routes/userRoutes.js";
+import { userRouter } from './routes/userRoutes.js';
 
 const port = 3000;
 const app = express();
